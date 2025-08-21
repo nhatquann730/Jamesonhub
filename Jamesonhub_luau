@@ -1,0 +1,186 @@
+-- Tải UI chính từ GitHub (phải chắc rằng link này hoạt động)
+local uiScript = game:HttpGet("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/main/UiREDzV2.lua")
+loadstring(uiScript)()
+
+-- Tải sẵn các script bên ngoài
+local h4dHubScript = game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua", true)
+local flyGuiScript = game:HttpGet("https://pastebin.com/raw/5Q95EK1n", true)
+local speedHubScript = game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true)
+
+-- Tạo cửa sổ UI
+local Window = MakeWindow({
+    Hub = {
+        Title = "jameson_VN Roblox",
+        Animation = "roblox jameson_VN"
+    },
+    Key = {
+        KeySystem = false,
+        Title = "Key System",
+        Description = "",
+        KeyLink = "",
+        Keys = {"1234"},
+        Notifi = {
+            Notifications = true,
+            CorrectKey = "Running the Script...",
+            Incorrectkey = "The key is incorrect",
+            CopyKeyLink = "Copied to Clipboard"
+        }
+    }
+})
+
+-- Nút thu gọn
+MinimizeButton({
+    Image = "http://www.roblox.com/asset/?id=91563008095207",
+    Size = {50, 50},
+    Color = Color3.fromRGB(10, 10, 10),
+    Corner = true,
+    Stroke = false,
+    StrokeColor = Color3.fromRGB(255, 0, 0)
+})
+
+-- Tabs
+local Tab1o = MakeTab({Name = "99 night in the forest"})
+ 
+ local Tab2o = MakeTab({Name = "xem phim"})
+ 
+-- Buttons (gọi script đã tải sẵn)
+AddButton(Tab1o, {
+    Name = "H4d Hub",
+    Callback = function()
+        loadstring(h4dHubScript)()
+    end
+})
+
+AddButton(Tab1o, {
+    Name = "Fly GUI v1 VN",
+    Callback = function()
+        loadstring(flyGuiScript)()
+    end
+})
+
+AddButton(Tab1o, {
+    Name = "Speed Hub",
+    Callback = function()
+        loadstring(speedHubScript)()
+    end
+})
+ 
+ AddButton(Tab1o, {
+     Name = "ringta hub",
+    Callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/99daysloader.github.io/refs/heads/main/ringta.lua"))()
+             end
+})
+
+ AddButton(Tab1o, {
+     Name = "soluna hub",
+    Callback = function()
+          loadstring(game:HttpGet("https://soluna-script.vercel.app/99-Nights-in-the-Forest.lua",true))()
+              end
+})
+AddButton(Tab2o, {
+     Name = "tôi có khả năng nhìn trước tương lai",
+    Callback = function()
+          loadstring(game:HttpGet("https://pastebin.com/raw/UzQqR377", true))()
+              end
+})
+AddButton(Tab2o, {
+     Name = " ly hôn vợ... tôi kiếm nghìn tỷ",
+    Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/axcQLTmk", true))()
+              end
+})
+AddButton(Tab2o, {
+     Name = " hệ thống cưng chiều vợ",
+    Callback = function()
+    -- Tạo ScreenGui và Frame
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "JamesonHUB"
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 300, 0, 200)
+frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+frame.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+frame.BorderSizePixel = 5
+
+-- Tiêu đề
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0.3, 0)
+title.Text = "JAMESON HUB"
+title.TextScaled = true
+title.Font = Enum.Font.GothamBlack
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+
+-- Nút mở link YouTube
+local button = Instance.new("TextButton", frame)
+button.Size = UDim2.new(0.8, 0, 0.3, 0)
+button.Position = UDim2.new(0.1, 0, 0.5, 0)
+button.Text = "Xem video YouTube"
+button.TextScaled = true
+button.BackgroundColor3 = Color3.fromRGB(0, 255, 127)
+button.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- Khi nhấn nút: sao chép link vào clipboard
+button.MouseButton1Click:Connect(function()
+	local link = "https://youtu.be/xMiGB9Jv6F4?si=H1bPMuT52Zh-Tt_U"
+	setclipboard(link)
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Link đã sao chép!";
+		Text = "Dán vào trình duyệt để xem video.";
+		Duration = 5;
+	})
+end)
+             end
+})
+AddButton(Tab2o, {
+     Name = " hệ thống hổ vương full",
+    Callback = function()
+    -- Tạo ScreenGui và Frame
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "JamesonHUB"
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 300, 0, 200)
+frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+frame.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+frame.BorderSizePixel = 5
+
+-- Tiêu đề
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0.3, 0)
+title.Text = "JAMESON HUB"
+title.TextScaled = true
+title.Font = Enum.Font.GothamBlack
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+
+-- Nút mở link YouTube
+local button = Instance.new("TextButton", frame)
+button.Size = UDim2.new(0.8, 0, 0.3, 0)
+button.Position = UDim2.new(0.1, 0, 0.5, 0)
+button.Text = "Xem video YouTube"
+button.TextScaled = true
+button.BackgroundColor3 = Color3.fromRGB(0, 255, 127)
+button.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- Khi nhấn nút: sao chép link vào clipboard
+button.MouseButton1Click:Connect(function()
+	local link = "https://youtu.be/uUg0T9V9kHg?si=3kupZ4v907RHjSzK"
+	setclipboard(link)
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Link đã sao chép!";
+		Text = "Dán vào trình duyệt để xem video.";
+		Duration = 5;
+	})
+end)
+            end
+ })
+ AddButton(Tab1o, {
+     Name = "kaitun kc",
+    Callback = function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/MQPS7/99-Night-in-the-Forset/refs/heads/main/Gfarm'))()
+              end
+})
