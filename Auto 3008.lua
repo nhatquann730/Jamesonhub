@@ -1,7 +1,10 @@
--- Gui Setup
+--------------------------------------------------------------------------------
+-- GUI SETUP
+--------------------------------------------------------------------------------
 local ScreenGui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local Button = Instance.new("TextButton")
+local BrightButton = Instance.new("TextButton") -- Nút Full Bright
 local ProgressBarBG = Instance.new("Frame")
 local ProgressBarFill = Instance.new("Frame")
 local ProgressText = Instance.new("TextLabel")
@@ -12,7 +15,7 @@ ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.Name = "FoodGui"
 
 -- Frame chính
-MainFrame.Size = UDim2.new(0, 220, 0, 140)
+MainFrame.Size = UDim2.new(0, 220, 0, 180)
 MainFrame.Position = UDim2.new(0.4, 0, 0.6, 0)
 MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 MainFrame.Active = true
@@ -27,9 +30,17 @@ Button.BackgroundColor3 = Color3.fromRGB(0, 200, 0) -- xanh
 Button.TextColor3 = Color3.new(1,1,1)
 Button.Parent = MainFrame
 
+-- Nút Full Bright
+BrightButton.Size = UDim2.new(0, 200, 0, 30)
+BrightButton.Position = UDim2.new(0, 10, 0, 75)
+BrightButton.Text = "Full Bright: OFF"
+BrightButton.BackgroundColor3 = Color3.fromRGB(0, 120, 200) -- xanh dương
+BrightButton.TextColor3 = Color3.new(1,1,1)
+BrightButton.Parent = MainFrame
+
 -- Khung progress
 ProgressBarBG.Size = UDim2.new(0, 200, 0, 20)
-ProgressBarBG.Position = UDim2.new(0, 10, 0, 80)
+ProgressBarBG.Position = UDim2.new(0, 10, 0, 115)
 ProgressBarBG.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 ProgressBarBG.BorderSizePixel = 0
 ProgressBarBG.Parent = MainFrame
@@ -43,7 +54,7 @@ ProgressBarFill.Parent = ProgressBarBG
 
 -- Text %
 ProgressText.Size = UDim2.new(0, 200, 0, 20)
-ProgressText.Position = UDim2.new(0, 10, 0, 110)
+ProgressText.Position = UDim2.new(0, 10, 0, 145)
 ProgressText.Text = "Progress: 0%"
 ProgressText.TextColor3 = Color3.new(1,1,1)
 ProgressText.BackgroundTransparency = 1
@@ -77,9 +88,46 @@ OpenButton.MouseButton1Click:Connect(function()
 end)
 
 --------------------------------------------------------------------------------
+-- FULL BRIGHT SCRIPT
+--------------------------------------------------------------------------------
+local Lighting = game:GetService("Lighting")
+local BrightEnabled = false
+
+local function FullBright()
+    Lighting.Brightness = 2
+    Lighting.ClockTime = 14
+    Lighting.FogEnd = 1000000
+    Lighting.GlobalShadows = false
+    Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+end
+
+local function ResetBright()
+    Lighting.Brightness = 1
+    Lighting.ClockTime = 0
+    Lighting.FogEnd = 1000
+    Lighting.GlobalShadows = true
+    Lighting.OutdoorAmbient = Color3.fromRGB(127, 127, 127)
+end
+
+BrightButton.MouseButton1Click:Connect(function()
+    BrightEnabled = not BrightEnabled
+    if BrightEnabled then
+        BrightButton.Text = "Full Bright: ON"
+        FullBright()
+        Lighting.Changed:Connect(function()
+            if BrightEnabled then
+                FullBright()
+            end
+        end)
+    else
+        BrightButton.Text = "Full Bright: OFF"
+        ResetBright()
+    end
+end)
+
+--------------------------------------------------------------------------------
 -- SCRIPT LẤY FOOD
 --------------------------------------------------------------------------------
-
 -- Settings
 local TimesToTeleport = 50
 local Radius = 100
